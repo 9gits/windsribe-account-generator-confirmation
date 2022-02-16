@@ -19,10 +19,15 @@ As of February 16, 2022, I think the bug exists because I have only confirmed su
 (usage)
 -------
 
+
     python open_multiple.py
+    
+Check the account information in the generated account.txt or standard output.
 
-use chrome (with vpn,proxy)
+If "confirmation successful" is filled in, the email confirmation is also successful.
 
-(windows)
+<br>
+use chrome (with vpn,proxy)  
 
+(windows)  
 chromedriver.exe
