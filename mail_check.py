@@ -32,9 +32,8 @@ def mail_confirmation(driver):
     #//*[@id="tm-body"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[4]/ul/li[2]/div[3]/div[2]/a
 
     #wait
-    print("*DEBUG* mail_confirmation")
     time.sleep(20)
-    print("*DEBUG* open mail")
+    print("Check mail")
     #set screen
     set_screen(driver)
 
@@ -55,9 +54,8 @@ def mail_confirmation(driver):
 
 
     #wait
-    print("*DEBUG* opened mail")
     time.sleep(20)
-    print("*DEBUG* start confirmation mail")
+    print("Check Confirmation btn")
     #set screen
     set_screen(driver)
 
@@ -97,7 +95,6 @@ def write_confirmation(confirmation):
 def scroll_down(self, speed):
     # get page height
     height = self.browser.execute_script("return document.body.scrollHeight")
-
     # scroll
     for i in range(1, height, speed):
         self.browser.execute_script("window.scrollTo(0, " + str(i) + ");")

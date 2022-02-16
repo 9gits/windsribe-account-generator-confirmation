@@ -1,11 +1,8 @@
-from lib2to3.pgen2 import driver
-from re import search
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import time
 import undetected_chromedriver.v2 as uc
 
-from mail_check import mail,mail_confirmation
+from mail_check import mail,mail_confirmation,write_confirmation
 from windscribe_input import input_windsribe 
 
 import global_value as g
@@ -52,6 +49,7 @@ def main():
 
     #confirmation mail
     if mail_confirmation(driver_mail) == -1 :
+        write_confirmation(confirmation="confirmation fail")
         driver_windscribe.close()
         driver_mail.close()
 
