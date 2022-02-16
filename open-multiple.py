@@ -1,3 +1,4 @@
+from lib2to3.pgen2 import driver
 from re import search
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -15,11 +16,16 @@ url2 = "https://windscribe.com/signup"
 account_url = "https://windscribe.com/myaccount?hello"
 filepath = "./account.txt"
 
-options = webdriver.ChromeOptions()
-#options.add_argument('--headless')
+options = uc.ChromeOptions()
+options.add_argument('--headless')
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--ignore-ssl-errors')
+options.add_argument('--disable-gpu')
 #options.add_argument("--proxy-server=socks5://127.0.0.1:9150")
+
+options_ws = uc.ChromeOptions()
+#options_ws.add_argument('--headless')
+options_ws.add_argument('--disable-gpu')
 
 
 
@@ -29,11 +35,11 @@ def open_browser(url):
     
 def main():
     #open_browser(url1)
-    driver_mail = uc.Chrome(executable_path=path)
+    driver_mail = uc.Chrome(executable_path=path,options=options)
     driver_mail.get(url1)
 
     #open_browser(url2)
-    driver_windscribe = webdriver.Chrome(executable_path=path,options=options)
+    driver_windscribe = uc.Chrome(executable_path=path,options=options_ws)
     driver_windscribe.get(url2)
 
     #get mail-address
@@ -41,10 +47,13 @@ def main():
     print(g.mail_address)
 
     #input windsribe-form
-    input_windsribe(driver_windscribe)
+    if input_windsribe(driver_windscribe) == -1 :
+        driver_mail.close()
 
     #confirmation mail
-    mail_confirmation(driver_mail)
+    if mail_confirmation(driver_mail) == -1 :
+        driver_windscribe.close()
+        driver_mail.close()
 
     #wait
     time.sleep(5)

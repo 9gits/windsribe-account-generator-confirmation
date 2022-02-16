@@ -1,17 +1,10 @@
-from re import search
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import time
 
 import global_value as g
 
-path = "./chromedriver.exe"
-url = "https://windscribe.com/signup"
 account_url = "https://windscribe.com/myaccount?hello"
 filepath = "./account.txt"
 
-options = webdriver.ChromeOptions()
-options.add_argument('--headless')
 
 class Account:
     def __init__(self):
@@ -73,10 +66,12 @@ def input_windsribe(driver):
 
         #write account information to txtfile
         write_account_information()
+        return 0
     else:
         print("creation failed")
         #close browser
         driver.close()
+        return -1
 
     
 
