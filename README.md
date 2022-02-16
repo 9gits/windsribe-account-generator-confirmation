@@ -4,7 +4,7 @@ Generate windscribe-account with mail confirmation
 
 
 
-![work](https://user-images.githubusercontent.com/99726976/154296562-70908038-718d-4c64-8a2c-e20d7fe4b6b1.PNG)
+![work2](https://user-images.githubusercontent.com/99726976/154297020-af9311a9-8731-42f5-a804-6f46797408f2.PNG)
 
 
 ----
